@@ -1,0 +1,128 @@
+[gd_scene load_steps=17 format=1]
+
+[ext_resource path="res://Fonts/begok.fnt" type="BitmapFont" id=1]
+[ext_resource path="res://Textures/Start_Game_Base.png" type="Texture" id=2]
+[ext_resource path="res://Textures/Start_Game_Pressed.png" type="Texture" id=3]
+[ext_resource path="res://Textures/Start_Game_Hover.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Main_Menu_Button.gd" type="Script" id=5]
+[ext_resource path="res://Textures/Quit_Button/Quit_Base.png" type="Texture" id=6]
+[ext_resource path="res://Textures/Quit_Button/Quit_Pressed.png" type="Texture" id=7]
+[ext_resource path="res://Textures/Quit_Button/Quit_Hover.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/Quit_Game.gd" type="Script" id=9]
+[ext_resource path="res://Textures/Select_Level_Base.png" type="Texture" id=10]
+[ext_resource path="res://Textures/Select_Level_Pressed.png" type="Texture" id=11]
+[ext_resource path="res://Textures/Select_Level_Hover.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/Select_Level.gd" type="Script" id=13]
+[ext_resource path="res://Textures/Options_Normal.png" type="Texture" id=14]
+[ext_resource path="res://Textures/Options_Pressed.png" type="Texture" id=15]
+[ext_resource path="res://Textures/Options_Hover.png" type="Texture" id=16]
+
+[node name="Main_Menu" type="Node"]
+
+[node name="Title" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 415.0
+margin/top = 150.0
+margin/right = 631.0
+margin/bottom = 188.0
+custom_fonts/font = ExtResource( 1 )
+text = "Brick Breaker"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Start_Game" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 360.0
+margin/top = 270.0
+margin/right = 510.0
+margin/bottom = 330.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 2 )
+textures/pressed = ExtResource( 3 )
+textures/hover = ExtResource( 4 )
+params/resize_mode = 0
+params/stretch_mode = 0
+script/script = ExtResource( 5 )
+
+[node name="Quit_Game" type="TextureButton" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 510.0
+margin/top = 360.0
+margin/right = 360.0
+margin/bottom = 180.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 6 )
+textures/pressed = ExtResource( 7 )
+textures/hover = ExtResource( 8 )
+params/resize_mode = 0
+params/stretch_mode = 0
+script/script = ExtResource( 9 )
+
+[node name="Select_Level" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 510.0
+margin/top = 270.0
+margin/right = 660.0
+margin/bottom = 330.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 10 )
+textures/pressed = ExtResource( 11 )
+textures/hover = ExtResource( 12 )
+params/resize_mode = 0
+params/stretch_mode = 0
+script/script = ExtResource( 13 )
+
+[node name="TextureButton 2" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 360.0
+margin/top = 360.0
+margin/right = 510.0
+margin/bottom = 420.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 14 )
+textures/pressed = ExtResource( 15 )
+textures/hover = ExtResource( 16 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[connection signal="pressed" from="Start_Game" to="Start_Game" method="_on_TextureButton_pressed"]
+
+[connection signal="pressed" from="Quit_Game" to="Quit_Game" method="_on_TextureButton_2_pressed"]
+
+[connection signal="pressed" from="Select_Level" to="Select_Level" method="_on_Select_Level_pressed"]
+
+[connection signal="pressed" from="TextureButton 2" to="Select_Level" method="_on_TextureButton_2_pressed"]
+
+
